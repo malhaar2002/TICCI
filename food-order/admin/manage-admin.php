@@ -8,8 +8,13 @@
 
         <?php
             if (isset($_SESSION['add'])) {
-                echo "<font color = #3742fa>".$_SESSION['add']."</font>"; //Display session message (added admin successfully) in blue color
+                echo $_SESSION['add']; //Display session message (added admin successfully)
                 unset ($_SESSION['add']); //Removing session message
+            }
+
+            if (isset($_SESSION['delete'])) {
+                echo $_SESSION['delete']; //Display session message
+                unset ($_SESSION['delete']); //Removing session message
             }
         ?>
         <br><br><br>
@@ -58,8 +63,8 @@
                                 <td><?php echo $full_name ?></td>
                                 <td><?php echo $username ?></td>
                                 <td>
-                                    <a href="#" class="btn-secondary">Update Admin</a>
-                                    <a href="#" class="btn-danger">Delete Admin</a>
+                                    <a href="<?php echo SITEURL."admin/update-admin.php?id=".$id;?>" class="btn-secondary">Update Admin</a>
+                                    <a href="<?php echo SITEURL."admin/delete-admin.php?id=".$id;?>" class="btn-danger">Delete Admin</a>
                                 </td>
                             </tr>
                             
