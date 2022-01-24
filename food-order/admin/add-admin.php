@@ -7,7 +7,7 @@
 
         <?php
             if (isset($_SESSION['add'])) {
-                echo "<font color = #ff4757>".$_SESSION['add']."</font>"; //Displaying session message (failed to add admin) in red color
+                echo $_SESSION['add']; //Displaying session message (failed to add admin)
                 unset ($_SESSION['add']); //Removing session message
             }
         ?>
@@ -62,16 +62,16 @@
             //Data Inserted
 
             // Create a session variable to display message
-            $_SESSION['add'] = "Added Admin Successfully";
+            $_SESSION['add'] = "<div class = 'success'> Added Admin Successfully </div>";
 
-            // Redirect page to manage-admin
+            // Redirect page to manage-admin/
             header("location:".SITEURL.'admin/manage-admin.php'); //SITEURL is imported from constants.php while importing header.php
 
         } else {
             //Failed to insert data
 
             // Create a session variable to display message
-            $_SESSION['add'] = "Failed to Add Admin";
+            $_SESSION['add'] = "<div class = 'error'> Failed to Add Admin </div>";
 
             // Redirect page to manage-admin
             header("location:".SITEURL.'admin/add-admin.php'); //SITEURL is imported from constants.php while importing header.php
