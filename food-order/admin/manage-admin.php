@@ -7,19 +7,31 @@
         <br><br>
 
         <?php
-            if (isset($_SESSION['add'])) {
+            if (isset($_SESSION['add'])) { //Add admin
                 echo $_SESSION['add']; //Display session message (added admin successfully)
                 unset ($_SESSION['add']); //Removing session message
             }
 
-            if (isset($_SESSION['delete'])) {
+            if (isset($_SESSION['delete'])) { //Delete admin
                 echo $_SESSION['delete'];
                 unset ($_SESSION['delete']);
             }
 
-            if (isset($_SESSION['update'])) {
+            if (isset($_SESSION['update'])) { //Update admin details (full name and username)
                 echo $_SESSION['update'];
                 unset ($_SESSION['update']);
+            }
+            if (isset($_SESSION['user-not-found'])) { //User check while updating password
+                echo $_SESSION['user-not-found'];
+                unset ($_SESSION['user-not-found']);
+            }
+            if (isset($_SESSION['password-not-match'])) { //Update admin password - new pass != confirm pass
+                echo $_SESSION['password-not-match'];
+                unset ($_SESSION['password-not-match']);
+            }
+            if (isset($_SESSION['change-pwd'])) { //Update admin password - new pass != confirm pass
+                echo $_SESSION['change-pwd'];
+                unset ($_SESSION['change-pwd']);
             }
         ?>
         <br><br><br>
