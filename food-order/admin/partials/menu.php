@@ -1,4 +1,7 @@
-<?php include('../config/constants.php') ?>
+<?php
+    include('../config/constants.php');
+    include('login-check.php');
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -7,7 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/admin.css?v=<?php echo time(); ?>">
-    <title>Food Order Website - Home Page</title>
+    <title>Flavours of the North - Home</title>
 </head>
 <body>
     <!-- Menu Section Starts -->
@@ -19,6 +22,7 @@
                 <li><a href="manage-category.php">Categories</a></li>
                 <li><a href="manage-food.php">Food</a></li>
                 <li><a href="manage-order.php">Order</a></li>
+                <li><a href="logout.php">Logout</a></li>
             </ul>
         </div>
     </div>
