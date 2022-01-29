@@ -22,7 +22,6 @@
             <tr>
                 <th>S.No</th>
                 <th>Title</th>
-                <th>Image</th>
                 <th>Featured</th>
                 <th>Active</th>
                 <th>Actions</th>
@@ -47,7 +46,6 @@
                     while ($row = mysqli_fetch_assoc($res)) {
                         $id = $row['id'];
                         $title = $row['title'];
-                        $image_name = $row['image_name'];
                         $featured = $row['featured'];
                         $active = $row['active'];
 
@@ -56,27 +54,11 @@
                         <tr>
                             <td><?php echo $sn++ ?></td>
                             <td><?php echo $title; ?></td>
-
-                            <td>
-                                <?php
-                                    // Check whether image name is available or not
-                                    if ($image_name != "") {
-                                        # Display the image
-                                        ?>
-                                        <img src="<?php echo SITEURL; ?>/images/category/<?php echo $image_name; ?>" alt="" width=100px>
-                                        <?php
-                                    } else {
-                                        // Display the message
-                                        echo "<div class='error'>No Image Added</div>";
-                                    }
-                                ?>
-                            </td>
-
                             <td><?php echo $featured ?></td>
                             <td><?php echo $active ?></td>
                             <td>
                                 <a href="#" class="btn-secondary">Update Category</a>
-                                <a href="#" class="btn-danger">Delete Category</a>
+                                <a href="<?php echo SITEURL; ?>admin/delete-category.php" class="btn-danger">Delete Category</a>
                             </td>
                         </tr>
 
