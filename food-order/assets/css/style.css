@@ -1,10 +1,3 @@
-/**
-* Template Name: Restaurantly - v3.1.0
-* Template URL: https://bootstrapmade.com/restaurantly-restaurant-template/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
-
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
@@ -443,7 +436,7 @@ h1, h2, h3, h4, h5, h6 {
 #hero {
   width: 100%;
   height: 100vh;
-  background: url("../img/hero-bg.jpg") top center;
+  background: url("../img/hero-bg-1.jpg") top center;
   background-size: cover;
   position: relative;
   padding: 0;
@@ -696,6 +689,11 @@ section {
   margin-top: 110px;
 }
 
+.about-parent{
+  align-items: center;
+  justify-content: center;
+}
+
 @media (max-width: 992px) {
   .breadcrumbs {
     margin-top: 98px;
@@ -935,7 +933,9 @@ section {
 }
 
 .menu .menu-content::after {
-  content: "......................................................................" "...................................................................." "....................................................................";
+  content: "......................................................................"
+ "...................................................................."
+ "....................................................................";
   position: absolute;
   left: 20px;
   right: 0;
@@ -1724,4 +1724,88 @@ section {
   text-align: center;
   font-size: 13px;
   color: #fff;
+}
+
+/*--------------------------------------------------------------
+# Login Page
+--------------------------------------------------------------*/
+.login-parent{
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.login-form{
+  width: 50vw;
+}
+
+.login-inputs{
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: none;
+  font-size: 14px;
+  background: #0c0b09;
+  border: 2px solid #625b4b;
+  color: white;
+  padding: 10px 20px;
+  width: 300px;
+}
+
+.submit-button{
+  background-color: #1d1b16;
+}
+
+.login-subtext{
+  font-size: 11px;
+}
+
+@media only screen and (max-width: 600px) {
+
+  .login_graphic{
+    display: none;
+  }
+
+  .login-parent{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .login-form{
+    text-align: center;
+    display: inline-block;
+    text-align: center;
+    width: 50vw;
+  }
+
+  .login-inputs{
+    display: block;
+    margin: auto;
+  }
+  
+}
+
+/* Search Bar */
+.searchIcon{
+  border-top: 2px solid #625b4b;
+  border-right: 2px solid #625b4b;
+  border-bottom: 2px solid #625b4b;
+  padding: 0.75em;
+  color: white;
+  margin-left: -5px;
+}
+
+.searchBar{
+  margin-right: 0;
+}
+
+/* Success and Error messages */
+.success {
+  color: #2ed573;
+}
+
+.error {
+  color: #ff4757;
 }
