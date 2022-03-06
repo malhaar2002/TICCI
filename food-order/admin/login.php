@@ -63,7 +63,7 @@
         $count = mysqli_num_rows($res);
         if ($count == 1) {
             $_SESSION['login'] = "<div class='success'>Logged in Successfully</div>"; //To display log in message
-            $_SESSION['user'] = $username; //To ensure admin is logged in at all times when using the website
+            $_SESSION['admin-user'] = $username; //To ensure admin is logged in at all times when using the website
             header("location:".SITEURL."admin/");
         } else {
             $_SESSION['login'] = "<div class='error'>Username and Password did not match</div>";
