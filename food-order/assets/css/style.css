@@ -1811,3 +1811,9 @@ section {
 .help-text{
   font-weight: bold;
 }
+
+/* View cart */
+.quantity_table td {
+  padding: 6px;
+  border: 2px solid white;
+}
