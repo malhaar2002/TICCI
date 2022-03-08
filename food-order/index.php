@@ -25,13 +25,13 @@
       <div class="row about-parent">
         <div class="col-lg-6 order-1 order-lg-2" data-aos="zoom-in" data-aos-delay="100">
           <div class="about-img">
-            <img src="assets/img/about.jpg" alt="">
+            <img src="assets/img/about1.jpg" alt="">
           </div>
         </div>
         <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
           <p class="fst-italic">
             Welcome to Flavours of the North, a cosy food joint on the Plaksha University campus. Bask in the warmth of
-            the sun in this open air food joint as you enjoy the mouth watering assortment of north indian delicacies.
+            the sun in this open air food joint as you enjoy the mouth watering assortment of north indian delicacies
           </p>
         </div>
       </div>
@@ -69,7 +69,6 @@
         <form action="" method="POST">
           <input type="text" name="full_name" placeholder="Search" class="login-inputs searchBar" style="border-radius:0; margin:0;">
           <a href="<?php echo SITEURL; ?>food-search.php"><i class="fas fa-search searchIcon"></i></a>
-</svg>
         </form>
       </div>
 
@@ -77,15 +76,13 @@
       <!-- Display Food Items -->
       <div class="row menu-container" data-aos="fade-up" data-aos-delay="200">
 
-        <!-- <div class="col-lg-6 menu-item filter-starters">
-            <img src="assets/img/menu/lobster-bisque.jpg" class="menu-img" alt="">
-            <div class="menu-content">
-              <a href="#">Lobster Bisque</a><span>$5.95</span>
-            </div>
-            <div class="menu-ingredients">
-              Lorem, deren, trataro, filede, nerada
-            </div>
-          </div> -->
+        <?php
+          if (isset($_SESSION['add-to-cart'])) {
+            echo $_SESSION['add-to-cart'];
+            unset($_SESSION['add-to-cart']);
+          }
+        ?>
+
 
         <!-- Starters -->
         <?php
@@ -98,6 +95,7 @@
                   if ($count>0) {
                       while ($rows = mysqli_fetch_assoc($res)) { 
 
+                          $id = $rows['id'];
                           $title = $rows['title'];
                           $description = $rows['description'];
                           $price = $rows['price'];
@@ -106,9 +104,12 @@
                           ?>
 
         <div class="col-lg-6 menu-item filter-starters">
-          <img src="assets/img/menu/bread-barrel.jpg" class="menu-img" alt="">
+          <img src="assets/img/menu/<?php echo $image_name ?>" class="menu-img" alt="">
           <div class="menu-content">
-            <?php echo $title; ?><span>&#8377;<?php echo $price; ?></span>
+            <?php echo "<span class='food-item'>$title</span>"; ?><span>&#8377;<?php echo $price; ?></span>
+            <span>
+              <a href='<?php echo SITEURL; ?>view-cart.php?food_title=<?php echo $title; ?>' class='book-a-table-btn scrollto d-lg-flex food-item'>Add to Cart</a>
+            </span>
           </div>
           <div class="menu-ingredients">
             <?php echo $description; ?>
@@ -120,7 +121,7 @@
                   }
 
               }
-          ?>
+        ?>
 
         <!-- Main Course -->
         <?php
@@ -133,6 +134,7 @@
                   if ($count>0) {
                       while ($rows = mysqli_fetch_assoc($res)) { 
 
+                          $id = $rows['id'];
                           $title = $rows['title'];
                           $description = $rows['description'];
                           $price = $rows['price'];
@@ -141,9 +143,10 @@
                           ?>
 
         <div class="col-lg-6 menu-item filter-maincourse">
-          <img src="assets/img/menu/bread-barrel.jpg" class="menu-img" alt="">
+          <img src="assets/img/menu/<?php echo $image_name ?>" class="menu-img" alt="">
           <div class="menu-content">
-            <?php echo $title; ?><span>&#8377;<?php echo $price; ?></span>
+            <?php echo "<span class='food-item'>$title</span>"; ?><span>&#8377;<?php echo $price; ?></span>
+            <span><a href='<?php echo SITEURL; ?>view-cart.php?food_title=<?php echo $title; ?>' class='book-a-table-btn scrollto d-lg-flex food-item'>Add to Cart</a></span>
           </div>
           <div class="menu-ingredients">
             <?php echo $description; ?>
@@ -155,7 +158,7 @@
                   }
 
               }
-          ?>
+        ?>
 
         <!-- Bread and Add-ons -->
         <?php
@@ -168,6 +171,7 @@
                   if ($count>0) {
                       while ($rows = mysqli_fetch_assoc($res)) { 
 
+                          $id = $rows['id'];
                           $title = $rows['title'];
                           $description = $rows['description'];
                           $price = $rows['price'];
@@ -176,9 +180,10 @@
                           ?>
 
         <div class="col-lg-6 menu-item filter-breads">
-          <img src="assets/img/menu/bread-barrel.jpg" class="menu-img" alt="">
+          <img src="assets/img/menu/<?php echo $image_name ?>" class="menu-img" alt="">
           <div class="menu-content">
-            <?php echo $title; ?><span>&#8377;<?php echo $price; ?></span>
+            <?php echo "<span class='food-item'>$title</span>"; ?><span>&#8377;<?php echo $price; ?></span>
+            <span><a href='<?php echo SITEURL; ?>view-cart.php?food_title=<?php echo $title; ?>' class='book-a-table-btn scrollto d-lg-flex food-item'>Add to Cart</a></span>
           </div>
           <div class="menu-ingredients">
             <?php echo $description; ?>
@@ -203,6 +208,7 @@
                   if ($count>0) {
                       while ($rows = mysqli_fetch_assoc($res)) { 
 
+                          $id = $rows['id'];
                           $title = $rows['title'];
                           $description = $rows['description'];
                           $price = $rows['price'];
@@ -211,9 +217,10 @@
                           ?>
 
         <div class="col-lg-6 menu-item filter-combos">
-          <img src="assets/img/menu/bread-barrel.jpg" class="menu-img" alt="">
+          <img src="assets/img/menu/<?php echo $image_name ?>" class="menu-img" alt="">
           <div class="menu-content">
-            <?php echo $title; ?><span>&#8377;<?php echo $price; ?></span>
+            <?php echo "<span class='food-item'>$title</span>"; ?><span>&#8377;<?php echo $price; ?></span>
+            <span><a href='<?php echo SITEURL; ?>view-cart.php?food_title=<?php echo $title; ?>' class='book-a-table-btn scrollto d-lg-flex food-item'>Add to Cart</a></span>
           </div>
           <div class="menu-ingredients">
             <?php echo $description; ?>
@@ -238,6 +245,7 @@
                   if ($count>0) {
                       while ($rows = mysqli_fetch_assoc($res)) { 
 
+                          $id = $rows['id'];
                           $title = $rows['title'];
                           $description = $rows['description'];
                           $price = $rows['price'];
@@ -246,9 +254,10 @@
                           ?>
 
         <div class="col-lg-6 menu-item filter-parathas">
-          <img src="assets/img/menu/bread-barrel.jpg" class="menu-img" alt="">
+          <img src="assets/img/menu/<?php echo $image_name ?>" class="menu-img" alt="">
           <div class="menu-content">
-            <?php echo $title; ?><span>&#8377;<?php echo $price; ?></span>
+            <?php echo "<span class='food-item'>$title</span>"; ?><span>&#8377;<?php echo $price; ?></span>
+            <span><a href='<?php echo SITEURL; ?>view-cart.php?food_title=<?php echo $title; ?>' class='book-a-table-btn scrollto d-lg-flex food-item'>Add to Cart</a></span>
           </div>
           <div class="menu-ingredients">
             <?php echo $description; ?>
@@ -273,6 +282,7 @@
                   if ($count>0) {
                       while ($rows = mysqli_fetch_assoc($res)) { 
 
+                          $id = $rows['id'];
                           $title = $rows['title'];
                           $description = $rows['description'];
                           $price = $rows['price'];
@@ -281,9 +291,10 @@
                           ?>
 
         <div class="col-lg-6 menu-item filter-dessert">
-          <img src="assets/img/menu/bread-barrel.jpg" class="menu-img" alt="">
+          <img src="assets/img/menu/<?php echo $image_name ?>" class="menu-img" alt="">
           <div class="menu-content">
-            <?php echo $title; ?><span>&#8377;<?php echo $price; ?></span>
+            <?php echo "<span class='food-item'>$title</span>"; ?><span>&#8377;<?php echo $price; ?></span>
+            <span><a href='<?php echo SITEURL; ?>view-cart.php?food_title=<?php echo $title; ?>' class='book-a-table-btn scrollto d-lg-flex food-item'>Add to Cart</a></span>
           </div>
           <div class="menu-ingredients">
             <?php echo $description; ?>
@@ -308,6 +319,7 @@
                   if ($count>0) {
                       while ($rows = mysqli_fetch_assoc($res)) { 
 
+                          $id = $rows['id'];
                           $title = $rows['title'];
                           $description = $rows['description'];
                           $price = $rows['price'];
@@ -316,9 +328,10 @@
                           ?>
 
         <div class="col-lg-6 menu-item filter-salads">
-          <img src="assets/img/menu/bread-barrel.jpg" class="menu-img" alt="">
+          <img src="assets/img/menu/<?php echo $image_name ?>" class="menu-img" alt="">
           <div class="menu-content">
-            <?php echo $title; ?><span>&#8377;<?php echo $price; ?></span>
+            <?php echo "<span class='food-item'>$title</span>"; ?><span>&#8377;<?php echo $price; ?></span>
+            <span><a href='<?php echo SITEURL; ?>view-cart.php?food_title=<?php echo $title; ?>' class='book-a-table-btn scrollto d-lg-flex food-item'>Add to Cart</a></span>
           </div>
           <div class="menu-ingredients">
             <?php echo $description; ?>
@@ -404,16 +417,33 @@
               <textarea class="form-control" name="message" rows="8" placeholder="Message" required></textarea>
             </div>
             <br>
-            <div class="text-center"><button type="submit">Send Message</button></div>
+            <div class="text-center"><button type="submit" name="submit">Send Message</button></div>
           </form>
 
         </div>
 
+        <?php
+        // Get form data
+          if (isset($_POST['submit'])) {
+            echo "ABBE SAALE";
+            $name = $_POST['name'];
+            $email = $_POST['email'];
+            $subject = $_POST['subject'];
+            $message = $_POST['messsage'];
+            $body = "Name: ".$name."\nEmail: ".$email."\nMessage: ".$message;
+            
+            // TODO: Send email
+            mail("aroramalhaar@gmail.com", "Hello", "Hello again");
+          }
+        ?>
+
       </div>
 
     </div>
-  </section><!-- End Contact Section -->
+  </section>
+  <!-- End Contact Section -->
 
-</main><!-- End #main -->
+</main>
+<!-- End #main -->
 
 <?php include("partials/footer.php"); ?>

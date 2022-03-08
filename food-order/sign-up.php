@@ -76,7 +76,7 @@
 <!-- End #main -->
 
 <?php
-  if (isset($_POST['submit'])) {
+ if (isset($_POST['submit'])) {
     $full_name = $_POST['full_name'];
     $contact_number = $_POST['contact_number'];
     $email = $_POST['email'];
@@ -101,10 +101,11 @@
       exit();
     }
 
-    //TODO: FIX THIS SHIT. IT IS SOMEHOW IGNORING THE IF STATEMENT ENTIRELY (EXECUTING NEITHER IF NOR ELSE)
     // Username uniqueness check
     $sql = "SELECT username FROM tbl_user";
     $res = mysqli_query($conn, $sql);
+    $count = mysqli_num_rows($res);
+    echo "count=".$count;
 
     if ($res == TRUE) {
       echo "Executing...";
@@ -118,9 +119,9 @@
 
           if ($username == $existing_usernames) {
             
-            // $_SESSION['username-taken'] = "<div class = 'error'>This Username is Already Taken. Please try Another</div>";
-            // echo "<script> location.href='sign-up.php'; </script>";
-            // exit();
+            $_SESSION['username-taken'] = "<div class = 'error'>This Username is Already Taken. Please try Another</div>";
+            echo "<script> location.href='sign-up.php'; </script>";
+            exit();
 
           } else {
             // Convert username to lowercase
