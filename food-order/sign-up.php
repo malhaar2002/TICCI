@@ -19,7 +19,7 @@
               <input type="text" name="email" placeholder="Email Address" class="login-inputs">
               <br><br>
 
-              <input type="text" name="username" placeholder="Username" class="login-inputs">
+              <input type="text" name="username" placeholder="Username (Only Letters and Digits)" class="login-inputs">
               <br><br>
               
               <input type="password" name="password" placeholder="Password" class="login-inputs">
@@ -54,13 +54,17 @@
                       echo $_SESSION['registration-failed'];
                       unset($_SESSION['registration-failed']);
                   }
+                  if (isset($_SESSION['username-invalid'])) {
+                      echo $_SESSION['username-invalid'];
+                      unset($_SESSION['username-invalid']);
+                  }
               ?>
 
 
             </form>
         </div>
 
-        <img src="assets/img/undraw_eating_together.svg" alt="" width="30%" class="login_graphic">
+        <img src="assets/img/undraw_eating_together.svg" alt="" width="30%" class="login_graphic" title = "Would you look at that, two people dating! There is hope bois">
 
       </div>
 
@@ -97,6 +101,13 @@
     // Email validation
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
       $_SESSION['invalid-email'] = "<div class = 'error'>Please Enter a Valid Email Address</div>";
+      echo "<script> location.href='sign-up.php'; </script>";
+      exit();
+    }
+
+    // TODO: Username validation
+    if (preg_match('/'.preg_quote('^£$%^&*@#~?><,@|-=-_+-¬', '/').'/', $string)) {
+      $_SESSION['username-invalid'] = "<div class='error'>Username Contained Invalid Characters. Please use only Letters and Digits";
       echo "<script> location.href='sign-up.php'; </script>";
       exit();
     }

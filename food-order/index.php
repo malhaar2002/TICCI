@@ -14,6 +14,7 @@
       </div>
     </div>
   </div>
+  <div class = "hero-bottom">*Images shown are for illustration purposes only and MIGHT be SLIGHTLY different from the actual product ;&#41;</div>
 </section><!-- End Hero -->
 
 <main id="main">
@@ -64,13 +65,13 @@
         </div>
       </div>
 
-      <!-- Search Bar -->
-      <div class="d-flex justify-content-center login-parent" data-aos="fade-up" data-aos-delay="100">
+      <!-- TODO: Search Bar -->
+      <!-- <div class="d-flex justify-content-center login-parent" data-aos="fade-up" data-aos-delay="100">
         <form action="" method="POST">
           <input type="text" name="full_name" placeholder="Search" class="login-inputs searchBar" style="border-radius:0; margin:0;">
-          <a href="<?php echo SITEURL; ?>food-search.php"><i class="fas fa-search searchIcon"></i></a>
+          <a href="<?php // echo SITEURL; ?>food-search.php"><i class="fas fa-search searchIcon"></i></a>
         </form>
-      </div>
+      </div> -->
 
 
       <!-- Display Food Items -->

@@ -107,21 +107,39 @@
             // Increase or Decrease Quantity
 
             // TODO: Quantity decrease nahi ho rahi, sirf increase ho rahi hai
-            if (isset($_GET['update_item'])) {
+            
+            elseif (isset($_GET['update_item'])) {
               $update_item = $_GET['update_item'];
-              if ($_GET['action'] = 'increase') {
+
+              //Get original price
+              $sql = "SELECT quantity, price FROM ".$_SESSION['student-user']."_cart WHERE title = '$update_item'";
+              $res = mysqli_query($conn, $sql);
+
+              if ($res == TRUE) {
+                  $count = mysqli_num_rows($res);
+
+                  if ($count>0) {
+                      while ($rows = mysqli_fetch_assoc($res)) {
+                          $price = $rows['price'];
+                          $quantity = $rows['quantity'];
+                      }
+                  }
+
+              $original_price = $price / $quantity; 
+
+              // Quantity increase
+              if ($_GET['action'] = 'increase') {  
                 $sql5 = "UPDATE ".$_SESSION['student-user']."_cart SET quantity = quantity + 1 WHERE title = '$update_item'";
                 $res5 = mysqli_query($conn, $sql5);
-                // $sql5 = "UPDATE ".$_SESSION['student-user']."_cart SET price = price + $price WHERE title = '$update_item'";
-                // $res5 = mysqli_query($conn, $sql5);
-
+                
               } elseif ($_GET['action'] = 'decrease') {
                 $sql5 = "UPDATE ".$_SESSION['student-user']."_cart SET quantity = quantity - 1 WHERE title = '$update_item'";
                 $res5 = mysqli_query($conn, $sql5);
-                // $sql5 = "UPDATE ".$_SESSION['student-user']."_cart SET price = price - $price WHERE title = '$update_item'";
-                // $res5 = mysqli_query($conn, $sql5);
-
               }
+
+              // Update price
+              $sql5 = "UPDATE ".$_SESSION['student-user']."_cart SET price = quantity * $original_price WHERE title = '$update_item'";
+              $res5 = mysqli_query($conn, $sql5);
 
               if ($res5==TRUE) {
 
@@ -137,6 +155,10 @@
                       $title3 = $rows3['title'];
                       $price3 = $rows3['price'];
                       $quantity3 = $rows3['quantity'];
+                    }
+                  }
+                }
+              }    
 
 
                     ?>
@@ -158,22 +180,62 @@
                     <?php
                     }
                   }
+            
+
+            else {
+              $sql6 = "SELECT * FROM ".$_SESSION['student-user']."_cart";
+              $res6 = mysqli_query($conn, $sql6);
+
+              if ($res6==TRUE) {
+                $count6 = mysqli_num_rows($res6);
+
+                if ($count6 > 0) {
+                  while ($rows6 = mysqli_fetch_assoc($res6)) {
+
+                    $title6 = $rows6['title'];
+                    $price6 = $rows6['price'];
+                    $quantity6 = $rows6['quantity'];
+
+
+                  ?>
+
+                  <tr>
+                      <td><?php echo "<span class='food-item'>$title6</span>"; ?></td>
+                      <td>
+                      <table class="quantity_table">
+                          <tr>
+                          <td><a href="view-cart.php?update_item=<?php echo $title6 ?>&action=decrease">-</a></td>
+                          <td><?php echo $quantity6; ?></td>
+                          <td><a href="view-cart.php?update_item=<?php echo $title6 ?>&action=increase">+</a></td>
+                          </tr>
+                      </table>
+                      </td>
+                      <td>&#8377;<?php echo $price6; ?></td>
+                  </tr>
+
+                  <?php
+                  }
                 }
               }
             }
+
           ?>
+
+          <tr>
+            <td></td>
+            <td><b>Total</b></td>
+            <td></td>
+          </tr>
+
           <tr>
             <td>
-              <a href="" class="book-a-table-btn" id="rzp-button1">Proceed to Payment Gateway</a>
+              <input type="button" class="book-a-table-btn" id="rzp-button1" value="Proceed to Payment Gateway" onclick="pay_now()" style="background-color: black;">
             </td>
           </tr>
           <tr>
             <tr>
               <td></td>
             </tr>
-            <td>
-              <a href="index.php#menu" class="book-a-table-btn">Add More Items</a>
-            </td>
           </tr>
           </table>
         </div>
@@ -184,25 +246,6 @@
 
 <!-- Razorpay Payment Integration -->
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-<script>
-var options = {
-    "key": "rzp_test_fPPpp89mxuJpoz", // Enter the Key ID generated from the Dashboard
-    "amount": "50000", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
-    "currency": "INR",
-    "name": "Flavours of the North",
-    "description": "Test Transaction",
-    "image": "/assets/css/img/about1.jpg",
-    "handler": function (response){
-        alert(response.razorpay_payment_id);
-        alert(response.razorpay_order_id);
-        alert(response.razorpay_signature)
-    }
-};
-var rzp1 = new Razorpay(options);
-document.getElementById('rzp-button1').onclick = function(e){
-    rzp1.open();
-    e.preventDefault();
-}
-</script>
+<script src="<?php echo SITEURL; ?>/assets/js/payment.js"></script>
 
 <?php include("partials/footer.php"); ?>
