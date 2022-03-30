@@ -5,9 +5,7 @@
               &copy; Copyright <strong><span>Flavours of the North</span></strong>. All Rights Reserved
           </div>
           <div class="credits">
-              Designed by <a href="https://malhaar2002.github.io/Personal-Website/" target = "_blank">Malhaar Arora</a> and <a
-                  href="https://2.bp.blogspot.com/-SZTRRHVfUDQ/XjGK2C_yxeI/AAAAAAAAAGk/RBRtAJgSgPs52C77eC2SevUTmwozEIrlACK4BGAYYCw/s80/20191215_203307.jpg">Aditya
-                  Tyagi</a>
+              Designed by <a href="https://malhaar2002.github.io/Personal-Website/" target = "_blank">Malhaar Arora</a>
           </div>
       </div>
   </footer>

@@ -47,7 +47,7 @@
     <header id="header" class="fixed-top d-flex align-items-cente">
         <div class="container-fluid container-xl d-flex align-items-center justify-content-lg-between">
 
-            <h1 class="logo me-auto me-lg-0"><a href="index.html">Flavours of the North</a></h1>
+            <h1 class="logo me-auto me-lg-0"><a href="index.php">Flavours of the North</a></h1>
             <!-- Uncomment below if you prefer to use an image logo -->
             <!-- <a href="index.html" class="logo me-auto me-lg-0"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
@@ -66,7 +66,19 @@
                     echo
                     "<div class='navbar order-last order-lg-1'>
                     <a href='view-cart.php'><i class='fas fa-shopping-cart fa-2x'></i></a>
-                    <a href='view-user.php'><i class='fas fa-user fa-2x'></i></a>
+
+                    <span class='dropdown'>                    
+                        <a class='btn' href='#' role='button' id='dropdownMenuLink' data-bs-toggle='dropdown' aria-expanded='false'>
+                        <i class='fas fa-user fa-2x'></i>
+                        </a>
+
+                        <ul class='dropdown-menu' aria-labelledby='dropdownMenuLink'>
+                        <li><a class='dropdown-item' href='view-user.php'>My Profile</a></li>
+                        <li><a class='dropdown-item' href='user-logout.php'>Logout</a></li>
+                        </ul>
+                    </span>
+
+
                     </div>";
                 } else {
                     echo "<a href='user-login.php' class='book-a-table-btn scrollto d-lg-flex'>Login</a>";
