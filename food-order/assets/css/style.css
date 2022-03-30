@@ -436,7 +436,7 @@ h1, h2, h3, h4, h5, h6 {
 #hero {
   width: 100%;
   height: 100vh;
-  background: url("../img/hero-bg-1.jpg") top center;
+  background: url("../img/hero-bg-3.jpg") top center;
   background-size: cover;
   position: relative;
   padding: 0;
@@ -577,6 +577,13 @@ h1, h2, h3, h4, h5, h6 {
   -webkit-animation: none;
   animation: none;
   border-radius: 0;
+}
+
+.hero-bottom {
+  color: grey;
+  position: absolute;
+  bottom: 0;
+  left: 5px;
 }
 
 @media (min-width: 1024px) {
