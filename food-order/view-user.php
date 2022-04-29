@@ -7,6 +7,14 @@
     <div class="container">
 
         <?php
+
+          // Display user updated message
+          if (isset($_SESSION['update'])) { //Add admin
+            echo $_SESSION['update']; //Display session message (added admin successfully)
+            unset ($_SESSION['update']); //Removing session message
+            echo "<br>";
+          }
+
           if (isset($_SESSION['student-user'])) {          
             $bande_ka_username = $_SESSION['student-user'];
             $sql = "SELECT * FROM tbl_user WHERE username = '$bande_ka_username'";
@@ -51,7 +59,7 @@
         <!-- Button to update user details -->
         <div class="btns">
           <br>
-          <a href="edit-user.php" class="book-a-table-btn submit-button">Update User Details</a>
+          <a href="update-user.php?username=<?php echo $username ?>" class="book-a-table-btn submit-button">Update User Details</a>
           <br><br>
         </div>
 
