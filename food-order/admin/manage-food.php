@@ -25,7 +25,6 @@
                 <th>Price</th>
                 <th>Image</th>
                 <th>Category</th>
-                <th>Featured</th>
                 <th>Active</th>
                 <th colspan=2>Actions</th>
             </tr>
@@ -48,7 +47,6 @@
                             $price = $rows['price'];
                             $image_name = $rows['image_name'];
                             $category_name = $rows['category_name'];
-                            $featured = $rows['featured'];
                             $active = $rows['active'];
 
                             ?>
@@ -73,7 +71,6 @@
                                     ?>
                                 </td>
                                 <td><?php echo $category_name; ?></td>
-                                <td><?php echo $featured; ?></td>
                                 <td><?php echo $active; ?></td>
                                 <td>
                                     <a href="#" class="btn-secondary">Update Food Item</a>

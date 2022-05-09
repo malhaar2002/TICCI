@@ -86,14 +86,6 @@
                 </tr>
 
                 <tr>
-                    <td>Featured: </td>
-                    <td>
-                        <input type="radio" name="featured" value="Yes">Yes
-                        <input type="radio" name="featured" value="No">No
-                    </td>
-                </tr>
-
-                <tr>
                     <td>Active: </td>
                     <td>
                         <input type="radio" name="active" value="Yes">Yes
@@ -120,12 +112,6 @@
                 $price = $_POST['price'];
 
                 // For radio buttons, we need to check if a value is selected or not
-
-                if (isset($_POST['featured'])) {
-                    $featured = $_POST['featured'];
-                } else {
-                    $featured = "No";
-                }
 
                 if (isset($_POST['active'])) {
                     $active = $_POST['active'];
@@ -159,7 +145,7 @@
 
                     // Rename the image
                     date_default_timezone_set('Asia/Kolkata');
-                    echo date_default_timezone_get();
+                    // echo date_default_timezone_get();
                     echo $date = date('m-d-Y-h-i-s-a', time());
                     $image_name = 'Food_Item_'.$date.'.'.$ext;
 
@@ -190,7 +176,6 @@
                 image_name = '$image_name',
                 category_name = '$category',
                 active = '$active',
-                featured = '$featured'
                 ";
 
                 // 3. Execute the query
