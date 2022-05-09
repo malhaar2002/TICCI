@@ -228,8 +228,18 @@
           </tr>
 
           <tr>
+
+            <!-- Get user email and phone number to pass to pay_now function -->
+            <?php
+              $sql = "SELECT contact_number, email FROM tbl_user WHERE username = '".$_SESSION['student-user']."';";
+              $res = mysqli_query($conn, $sql);
+              $row = mysqli_fetch_assoc($res);
+              $email = $row['email'];
+              $contact = $row['contact_number'];
+            ?>
+
             <td>
-              <input type="button" class="book-a-table-btn" id="rzp-button1" value="Proceed to Payment Gateway" onclick="pay_now()" style="background-color: black;">
+              <input type="button" class="book-a-table-btn" id="rzp-button1" value="Proceed to Payment Gateway" onclick="pay_now('<?php echo $contact; ?>', '<?php echo $email; ?>')" style="background-color: black;">
             </td>
           </tr>
           <tr>
@@ -246,6 +256,7 @@
 
 <!-- Razorpay Payment Integration -->
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="<?php echo SITEURL; ?>/assets/js/payment.js"></script>
 
 <?php include("partials/footer.php"); ?>

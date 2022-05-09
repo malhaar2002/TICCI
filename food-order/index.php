@@ -14,7 +14,7 @@
       </div>
     </div>
   </div>
-  <div class = "hero-bottom">*Images shown are for illustration purposes only and MIGHT be SLIGHTLY different from the actual product ;&#41;</div>
+  <!-- <div class = "hero-bottom">*Images shown are for illustration purposes only and MIGHT be SLIGHTLY different from the actual product ;&#41;</div> -->
 </section><!-- End Hero -->
 
 <main id="main">
@@ -109,7 +109,8 @@
           <div class="menu-content">
             <?php echo "<span class='food-item'>$title</span>"; ?><span>&#8377;<?php echo $price; ?></span>
             <span>
-              <a href='<?php echo SITEURL; ?>view-cart.php?food_title=<?php echo $title; ?>' class='book-a-table-btn scrollto d-lg-flex food-item'>Add to Cart</a>
+              <a href='<?php echo SITEURL; ?>view-cart.php?food_title=<?php echo $title; ?>'
+                class='book-a-table-btn scrollto d-lg-flex food-item'>Add to Cart</a>
             </span>
           </div>
           <div class="menu-ingredients">
@@ -147,7 +148,8 @@
           <img src="assets/img/menu/<?php echo $image_name ?>" class="menu-img" alt="">
           <div class="menu-content">
             <?php echo "<span class='food-item'>$title</span>"; ?><span>&#8377;<?php echo $price; ?></span>
-            <span><a href='<?php echo SITEURL; ?>view-cart.php?food_title=<?php echo $title; ?>' class='book-a-table-btn scrollto d-lg-flex food-item'>Add to Cart</a></span>
+            <span><a href='<?php echo SITEURL; ?>view-cart.php?food_title=<?php echo $title; ?>'
+                class='book-a-table-btn scrollto d-lg-flex food-item'>Add to Cart</a></span>
           </div>
           <div class="menu-ingredients">
             <?php echo $description; ?>
@@ -184,7 +186,8 @@
           <img src="assets/img/menu/<?php echo $image_name ?>" class="menu-img" alt="">
           <div class="menu-content">
             <?php echo "<span class='food-item'>$title</span>"; ?><span>&#8377;<?php echo $price; ?></span>
-            <span><a href='<?php echo SITEURL; ?>view-cart.php?food_title=<?php echo $title; ?>' class='book-a-table-btn scrollto d-lg-flex food-item'>Add to Cart</a></span>
+            <span><a href='<?php echo SITEURL; ?>view-cart.php?food_title=<?php echo $title; ?>'
+                class='book-a-table-btn scrollto d-lg-flex food-item'>Add to Cart</a></span>
           </div>
           <div class="menu-ingredients">
             <?php echo $description; ?>
@@ -221,7 +224,8 @@
           <img src="assets/img/menu/<?php echo $image_name ?>" class="menu-img" alt="">
           <div class="menu-content">
             <?php echo "<span class='food-item'>$title</span>"; ?><span>&#8377;<?php echo $price; ?></span>
-            <span><a href='<?php echo SITEURL; ?>view-cart.php?food_title=<?php echo $title; ?>' class='book-a-table-btn scrollto d-lg-flex food-item'>Add to Cart</a></span>
+            <span><a href='<?php echo SITEURL; ?>view-cart.php?food_title=<?php echo $title; ?>'
+                class='book-a-table-btn scrollto d-lg-flex food-item'>Add to Cart</a></span>
           </div>
           <div class="menu-ingredients">
             <?php echo $description; ?>
@@ -258,7 +262,8 @@
           <img src="assets/img/menu/<?php echo $image_name ?>" class="menu-img" alt="">
           <div class="menu-content">
             <?php echo "<span class='food-item'>$title</span>"; ?><span>&#8377;<?php echo $price; ?></span>
-            <span><a href='<?php echo SITEURL; ?>view-cart.php?food_title=<?php echo $title; ?>' class='book-a-table-btn scrollto d-lg-flex food-item'>Add to Cart</a></span>
+            <span><a href='<?php echo SITEURL; ?>view-cart.php?food_title=<?php echo $title; ?>'
+                class='book-a-table-btn scrollto d-lg-flex food-item'>Add to Cart</a></span>
           </div>
           <div class="menu-ingredients">
             <?php echo $description; ?>
@@ -295,7 +300,8 @@
           <img src="assets/img/menu/<?php echo $image_name ?>" class="menu-img" alt="">
           <div class="menu-content">
             <?php echo "<span class='food-item'>$title</span>"; ?><span>&#8377;<?php echo $price; ?></span>
-            <span><a href='<?php echo SITEURL; ?>view-cart.php?food_title=<?php echo $title; ?>' class='book-a-table-btn scrollto d-lg-flex food-item'>Add to Cart</a></span>
+            <span><a href='<?php echo SITEURL; ?>view-cart.php?food_title=<?php echo $title; ?>'
+                class='book-a-table-btn scrollto d-lg-flex food-item'>Add to Cart</a></span>
           </div>
           <div class="menu-ingredients">
             <?php echo $description; ?>
@@ -332,7 +338,8 @@
           <img src="assets/img/menu/<?php echo $image_name ?>" class="menu-img" alt="">
           <div class="menu-content">
             <?php echo "<span class='food-item'>$title</span>"; ?><span>&#8377;<?php echo $price; ?></span>
-            <span><a href='<?php echo SITEURL; ?>view-cart.php?food_title=<?php echo $title; ?>' class='book-a-table-btn scrollto d-lg-flex food-item'>Add to Cart</a></span>
+            <span><a href='<?php echo SITEURL; ?>view-cart.php?food_title=<?php echo $title; ?>'
+                class='book-a-table-btn scrollto d-lg-flex food-item'>Add to Cart</a></span>
           </div>
           <div class="menu-ingredients">
             <?php echo $description; ?>
